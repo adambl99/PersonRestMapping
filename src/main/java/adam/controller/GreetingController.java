@@ -29,5 +29,4 @@ public class GreetingController {
         gService.save(greeting);
         return new ResponseEntity<>(gService.findAll(), HttpStatus.OK);
     }
-
 }
