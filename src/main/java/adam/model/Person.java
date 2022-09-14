@@ -1,7 +1,12 @@
 package adam.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 public class Person {
 
@@ -9,29 +14,12 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    public Person(String name) {
-        this.name = name;
-    }
-
-    public Person() {
-    }
-
-    @Column
     private String name;
 
-    public long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JsonBackReference
+    @EqualsAndHashCode.Exclude
+    private Course course;
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

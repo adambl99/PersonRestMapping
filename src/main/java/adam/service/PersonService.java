@@ -13,8 +13,8 @@ import java.util.Set;
 public class PersonService implements IPerson {
     private final PersonRepository personRepository;
 
-    public PersonService(PersonRepository pRepo) {
-        personRepository = pRepo;
+    public PersonService(PersonRepository personRepository) {
+        this.personRepository = personRepository;
     }
 
     @Override
@@ -26,7 +26,8 @@ public class PersonService implements IPerson {
 
     @Override
     public Person save(Person object) {
-        return personRepository.save(object);
+       personRepository.save(object);
+       return object;
     }
 
     @Override
